@@ -49,7 +49,7 @@ def setup_logging(log_level):
 
     # Write to syslog
     syslog_address = '/dev/log'
-    if sys.platform == 'darwin':
+    if sys.platform.startswith(('darwin', 'freebsd')):
         syslog_address = '/var/run/syslog'
     sh = logging.handlers.SysLogHandler(address=syslog_address)
     sh.setLevel(logging.INFO)
