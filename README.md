@@ -40,6 +40,24 @@ optional arguments:
   -L {DEBUG,INFO,WARNING,ERROR,CRITICAL}, --log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
                         Set the log level (default is INFO)
   -c CONFIG, --config CONFIG
-                        Path to config file
+                        Path to config file (default is ./vultr.ini)
 
 ```
+
+# OPNsense
+To create a cron entry in the OPNsense GUI, a custom [configd](https://docs.opnsense.org/development/backend/configd.html)
+action will have to be created.  Create a new configd action in /usr/local/opnsense/service/conf/actions.d/
+with something similar:
+
+```
+[update]
+command:/usr/local/update-vultr/update_vultr.py
+parameters:
+type:script
+message:Update Vultr firewall rules
+description:Update Vultr firewall rules
+```
+
+Note: The description is required for the action to show up in the web UI, ownership needs to be root:wheel
+and configd and the web UI need to be restarted in order for the new service to show up:
+`service configd restart && /usr/local/etc/rc.restart_webgui`
