@@ -1,0 +1,8 @@
+*.gz
+*.log
+*.sw*
+*.zip
+.DS_Store
+._*
+.idea
+vultr.ini
