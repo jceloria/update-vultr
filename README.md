@@ -60,4 +60,5 @@ description:Update Vultr firewall rules
 
 Note: The description is required for the action to show up in the web UI, ownership needs to be root:wheel
 and configd and the web UI need to be restarted in order for the new service to show up:
+
 `service configd restart && /usr/local/etc/rc.restart_webgui`
