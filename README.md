@@ -27,7 +27,7 @@ protocol = TCP
 port = 22
 ```
 
-The following options are available:
+## Usage
 ```
 $─► ./update_vultr.py --help
 usage: update_vultr.py [-h] [-L {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
@@ -44,7 +44,7 @@ optional arguments:
 
 ```
 
-# OPNsense
+## OPNsense
 To create a cron entry in the OPNsense GUI, a custom [configd](https://docs.opnsense.org/development/backend/configd.html)
 action will have to be created.  Create a new configd action in /usr/local/opnsense/service/conf/actions.d/
 with something similar:
